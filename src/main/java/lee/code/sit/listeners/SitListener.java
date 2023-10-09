@@ -5,8 +5,11 @@ import lee.code.sit.nms.Chair;
 import net.kyori.adventure.text.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.CarpetBlock;
+import net.minecraft.world.level.block.WoolCarpetBlock;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.Bisected;
 import org.bukkit.block.data.type.Slab;
 import org.bukkit.block.data.type.Stairs;
 import org.bukkit.craftbukkit.v1_20_R2.CraftWorld;
@@ -27,7 +30,8 @@ public class SitListener implements Listener {
     final Block block = e.getClickedBlock();
     final Player player = e.getPlayer();
     if (block == null) return;
-    //TODO, add slabs and carpet
+    if (!(block.getBlockData() instanceof Stairs) && !(block.getBlockData() instanceof Slab) && !block.getType().name().endsWith("CARPET")) return;
+    if (block.getBlockData() instanceof Stairs stairs && stairs.getHalf().equals(Bisected.Half.TOP)) return;
     for (Entity entity : block.getWorld().getNearbyEntities(block.getBoundingBox())) {
       if (entity instanceof Player foundPlayer) {
         final Entity vehicle = foundPlayer.getVehicle();

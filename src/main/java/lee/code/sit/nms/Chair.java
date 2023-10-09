@@ -17,7 +17,8 @@ public class Chair extends ArmorStand {
 
   public Chair(Block block) {
     super(EntityType.ARMOR_STAND, ((CraftWorld)block.getWorld()).getHandle());
-    final Location chairLocation = block.getLocation().add(0.5, -0.5, 0.5);
+    this.block = block;
+    final Location chairLocation = getChairLocation();
     setPos(chairLocation.getX(), chairLocation.getY(), chairLocation.getZ());
     setNoGravity(true);
     setInvulnerable(true);
@@ -26,8 +27,15 @@ public class Chair extends ArmorStand {
     setSmall(true);
     setCustomName(Component.literal("chair"));
     getAttribute(Attributes.MAX_HEALTH).setBaseValue(0);
-    this.block = block;
     setStairDirection();
+  }
+
+  private Location getChairLocation() {
+    if (block.getType().name().endsWith("CARPET")) {
+      return block.getLocation().add(0.5, -0.9, 0.5);
+    } else {
+      return block.getLocation().add(0.5, -0.5, 0.5);
+    }
   }
 
   private void setStairDirection() {
