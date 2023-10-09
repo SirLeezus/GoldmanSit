@@ -8,6 +8,7 @@ import net.kyori.adventure.text.Component;
 @AllArgsConstructor
 public enum Lang {
   ERROR_CHAIR_OCCUPIED("&cThat block already has someone sitting on it."),
+  ERROR_CHAIR_OCCUPIED_BREAK("&cThat block has someone sitting on it so you can't break it."),
 
   ;
   @Getter private final String string;
