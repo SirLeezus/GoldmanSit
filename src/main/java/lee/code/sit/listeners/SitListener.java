@@ -73,9 +73,9 @@ public class SitListener implements Listener {
 
   @EventHandler
   public void onChairBurn(BlockBurnEvent e) {
-    if (hasSitter(e.getBlock())) {
-      e.setCancelled(true);
-    }
+    final Block block = e.getBlock();
+    if (!(block.getBlockData() instanceof Stairs) && !(block.getBlockData() instanceof Slab) && !block.getType().name().endsWith("CARPET")) return;
+    if (hasSitter(block)) e.setCancelled(true);
   }
 
   private boolean hasSitter(Block block) {
