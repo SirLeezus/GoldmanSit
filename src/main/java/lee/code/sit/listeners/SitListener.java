@@ -27,6 +27,7 @@ public class SitListener implements Listener {
     if (block == null) return;
     if (!(block.getBlockData() instanceof Stairs) && !(block.getBlockData() instanceof Slab) && !block.getType().name().endsWith("CARPET")) return;
     if (block.getBlockData() instanceof Stairs stairs && stairs.getHalf().equals(Bisected.Half.TOP)) return;
+    if (block.getBlockData() instanceof Slab slab && slab.getType().equals(Slab.Type.DOUBLE)) return;
     e.setCancelled(true);
     if (hasSitter(block)) {
       e.getPlayer().sendActionBar(Lang.ERROR_CHAIR_OCCUPIED.getComponent(null));

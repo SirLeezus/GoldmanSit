@@ -61,7 +61,9 @@ public class Chair extends ArmorStand {
       remove(RemovalReason.DISCARDED);
       return 0.0F;
     }
-    if (block.getBlockData() instanceof Stairs) return 0.0F;
+    if (block.getBlockData() instanceof Stairs stairs) {
+      if (stairs.getShape().equals(Stairs.Shape.STRAIGHT)) return 0.0F;
+    }
     // Update the entity's rotation to match the player's direction
     if (getPassengers().get(0) instanceof Player player) {
       setRot(player.getYRot(), 0);
