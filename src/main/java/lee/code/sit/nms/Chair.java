@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.type.Stairs;
-import org.bukkit.craftbukkit.v1_20_R2.CraftWorld;
+import org.bukkit.craftbukkit.v1_20_R3.CraftWorld;
 import org.bukkit.util.Vector;
 
 public class Chair extends ArmorStand {

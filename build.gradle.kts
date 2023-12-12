@@ -14,7 +14,7 @@ java {
 }
 
 dependencies {
-  paperweight.paperDevBundle("1.20.2-R0.1-SNAPSHOT")
+  paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
   // paperweight.foliaDevBundle("1.20.2-R0.1-SNAPSHOT")
   // paperweight.devBundle("com.example.paperfork", "1.20.2-R0.1-SNAPSHOT")
 
